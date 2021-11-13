@@ -53,9 +53,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
     if(personas.docs.length>0){
       print("Trae Datos");
+
       for(var doc in personas.docs){
         print(doc.data());
-        datos_personas.add(doc.data());
+        setState(() {
+          datos_personas.add(doc.data());
+
+
+        });
+
       }
     }else{
       print("Ha fallado.......");
