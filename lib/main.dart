@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:neighborshop/pantalla2.dart';
+import 'package:neighborshop/consultanegocios.dart';
 
 
 void main() {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: ' Firebase de Cristian',
+      title: ' Firebase de Cristiann',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
@@ -91,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> pantalla2()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> consultanegocios()));
         },
         label: Text("Sigiente"),
         icon: Icon(Icons.arrow_forward),
