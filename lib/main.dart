@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: (){
           Navigator.push(context, MaterialPageRoute(builder: (context)=> consultanegocios()));
         },
-        label: Text("Sigiente"),
+        label: Text("Siguiente negocios"),
         icon: Icon(Icons.arrow_forward),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
