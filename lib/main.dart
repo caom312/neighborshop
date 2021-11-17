@@ -20,11 +20,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: ' Firebase de Cristiann',
+      title: 'NeighborShop',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: const MyHomePage(title: 'Firebase hecho en clase Clase...'),
+      home: const MyHomePage(title: 'Home NeighborShop'),
     );
   }
 }
