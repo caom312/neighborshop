@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:neighborshop/consultanegocios.dart';
+import 'package:neighborshop/registro.dart';
+//import 'registro.dart';
 
 
 void main() {
@@ -83,13 +85,20 @@ class _MyHomePageState extends State<MyHomePage> {
     return AppBar(
       elevation: 0,
       title: Text("Neighbor shop"),
+      actions: [
+        IconButton(
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>registro()));
+            },
+            icon: Icon(Icons.add),
+        )
+      ],
     );
   }
 
 }
 
 class body extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
