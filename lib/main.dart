@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:neighborshop/pantallas/listarnegocios.dart';
+
 
 import 'consultanegocios.dart';
 import 'package:neighborshop/registro.dart';
+
+import 'menulateral/menuLateral.dart';
 //import 'registro.dart';
 
 
@@ -76,15 +78,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      drawer:  drawermenulateral(context),
       appBar: buildAppBar(),
       body: body(),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> listarnegocios()));
-        },
-        label: Text("Consultar Negocios"),
-        icon: Icon(Icons.arrow_forward),
-      ),
+
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
