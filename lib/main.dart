@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:neighborshop/consultanegocios.dart';
+import 'package:neighborshop/pantallas/listarnegocios.dart';
+
+import 'consultanegocios.dart';
 import 'package:neighborshop/registro.dart';
 //import 'registro.dart';
 
@@ -41,7 +42,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List datos_personas=[];
+  /*List datos_negocios=[];
   void initState(){
     super.initState();
     getPersonas();
@@ -60,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
       for(var doc in personas.docs){
         print(doc.data());
         setState(() {
-          datos_personas.add(doc.data());
+          datos_negocios.add(doc.data());
 
 
         });
@@ -70,13 +71,20 @@ class _MyHomePageState extends State<MyHomePage> {
       print("Ha fallado.......");
     }
   }
-
+*/
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
       appBar: buildAppBar(),
       body: body(),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> listarnegocios()));
+        },
+        label: Text("Consultar Negocios"),
+        icon: Icon(Icons.arrow_forward),
+      ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
@@ -84,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
   AppBar buildAppBar() {
     return AppBar(
       elevation: 0,
-      title: Text("Neighbor shop"),
+      title: Text("NeighborShop"),
       actions: [
         IconButton(
             onPressed: (){
@@ -102,6 +110,7 @@ class body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Column(
@@ -184,6 +193,8 @@ class body extends StatelessWidget {
                 ],
               )
           ),
+
+
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -212,11 +223,21 @@ class body extends StatelessWidget {
                   categoria(imagen: "assets/imagenes/009.png", texto: "PAPELERIA",),
                 ],
               ),
+
             ],
+
           ),
+
         ],
+
       ),
+
+
     );
+
+
+
+
   }
 }
 
@@ -240,7 +261,7 @@ class categoria extends StatelessWidget {
       padding: EdgeInsets.all(1),
       child: GestureDetector(
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>consultanegocios()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> consultanegocios()));
         },
         child: Column(
           children: <Widget>[
@@ -286,13 +307,12 @@ class categoria extends StatelessWidget {
                 ],
               ),
             ),
+
           ],
         ),
       ),
     );
+
   }
 }
-
-
-
 
