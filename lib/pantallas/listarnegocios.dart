@@ -63,7 +63,7 @@ class _listarnegociosState extends State<listarnegocios> {
             );
           },
           title: const Text(
-              'Buscar  Personas \u{1F50D}', textAlign: TextAlign.left, style: TextStyle(color: Colors.white,fontSize: 20)),
+              'Buscar Negocios \u{1F50D}', textAlign: TextAlign.left, style: TextStyle(color: Colors.white,fontSize: 20)),
 
       ),
       ),
