@@ -42,13 +42,12 @@ class _listarnegociosState extends State<listarnegocios> {
     }
 
   }
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
       appBar: AppBar(
+
 
         title:  ListTile(
           onTap: (){
@@ -63,7 +62,7 @@ class _listarnegociosState extends State<listarnegocios> {
             );
           },
           title: const Text(
-              'Buscar Negocios \u{1F50D}', textAlign: TextAlign.left, style: TextStyle(color: Colors.white,fontSize: 20)),
+              'Clic para Buscar Negocio \u{1F50D}', textAlign: TextAlign.left, style: TextStyle(color: Colors.white,fontSize: 14)),
 
       ),
       ),

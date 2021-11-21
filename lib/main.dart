@@ -134,7 +134,7 @@ class body extends StatelessWidget {
                     children: [
                       Text(
                         "Bienvenid@!",
-                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 35),
+                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 25),
                       ),
                       Spacer(),
                       //Image.asset("assets/iconos/001.PNG"),
