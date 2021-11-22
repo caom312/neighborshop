@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-
-import 'consultanegocios.dart';
 import 'package:neighborshop/registro.dart';
 
 import 'menulateral/menuLateral.dart';
@@ -258,7 +255,7 @@ class categoria extends StatelessWidget {
       padding: EdgeInsets.all(1),
       child: GestureDetector(
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> consultanegocios()));
+          //Navigator.push(context, MaterialPageRoute(builder: (context)=> consultanegocios()));
         },
         child: Column(
           children: <Widget>[
