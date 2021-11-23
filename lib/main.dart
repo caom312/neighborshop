@@ -88,14 +88,14 @@ class _MyHomePageState extends State<MyHomePage> {
     return AppBar(
       elevation: 0,
       title: Text("NeighborShop"),
-      actions: [
+      /*actions: [
         IconButton(
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>registro()));
             },
             icon: Icon(Icons.add),
         )
-      ],
+      ],*/
     );
   }
 
@@ -139,7 +139,7 @@ class body extends StatelessWidget {
                     ],
                   ),
                 ),
-                Positioned(
+                /*Positioned(
                   bottom: 0,
                   right: 0,
                   left: 0,
@@ -171,7 +171,7 @@ class body extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
+                ),*/
               ],
             ),
           ),
