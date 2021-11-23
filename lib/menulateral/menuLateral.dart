@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neighborshop/pantallas/listarnegocios.dart';
+import '../busquedapro.dart';
 import '../registro.dart';
 
 
@@ -50,13 +51,19 @@ Drawer drawermenulateral(BuildContext context) {
             },
           ),
           ListTile(
-            title: Text('Consultar Productos',style: TextStyle(fontSize: 15),),
+            title: Text('Consultar Negocios',style: TextStyle(fontSize: 15),),
             leading: Icon(Icons.search_outlined),
             onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=> listarnegocios()));
             },
           ),
-
+          ListTile(
+            title: Text('Consultar Productos',style: TextStyle(fontSize: 15),),
+            leading: Icon(Icons.search_outlined),
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> busquedapro()));
+            },
+          ),
           ListTile(
             title: Text('Salir',style: TextStyle(fontSize: 15),),
             leading: Icon(Icons.logout_outlined),
