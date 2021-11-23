@@ -17,8 +17,9 @@ class descripcionnegocio extends StatelessWidget {
       body:ListView(
         children: [
           miCardImage(url: Negociomodelodata.foto, texto: Negociomodelodata.nombre+"\n"+Negociomodelodata.categoria
-              +"\n"+Negociomodelodata.celular+"\n"+Negociomodelodata.direccion+"\n"+Negociomodelodata.telefono_fijo),
+              +"\nCel: "+Negociomodelodata.celular+"\nDir:"+Negociomodelodata.direccion+"\nTel: "+Negociomodelodata.telefono_fijo),
           ElevatedButton(
+
               onPressed: (){
 
                 launch(Negociomodelodata.paginaweb.toString());
