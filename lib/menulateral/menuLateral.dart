@@ -51,13 +51,6 @@ Drawer drawermenulateral(BuildContext context) {
             },
           ),
           ListTile(
-            title: Text('Consultar Negocios',style: TextStyle(fontSize: 15),),
-            leading: Icon(Icons.search_outlined),
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> listarnegocios()));
-            },
-          ),
-          ListTile(
             title: Text('Consultar Productos',style: TextStyle(fontSize: 15),),
             leading: Icon(Icons.search_outlined),
             onTap: (){

@@ -19,8 +19,8 @@ class _busquedaproState extends State<busquedapro> {
   List listaProductos=[];
 
   void initState(){
-    getProductos1();
     super.initState();
+    getProductos1();
   }
 
 
@@ -31,7 +31,6 @@ void getProductos1() async {
     for (var prod1 in productos1.docs) {
       setState((){
         listaProductos.add(prod1.data());
-        print(prod1.data());
       });
 
     }
@@ -39,7 +38,6 @@ void getProductos1() async {
   else{
     print("Error...");
   }
-  print(listaProductos.length);
 }
   void getProductos() async {
     listaprod.clear(); //Elimina todos los datos que tenga el list
@@ -52,10 +50,9 @@ void getProductos1() async {
     if (productos1.docs.length != 0) {
       for (var prod in productos1.docs) {
         listaprod.add(prod.data());
-        print(prod.data());
       }
       for (var i = 0; i < listaprod.length; i++) {
-        String id = listaprod[i]['negocio'].toString();
+        String id = listaprod[i]['negID'].toString();
         CollectionReference negocios = FirebaseFirestore.instance.collection(
             'Negocios');
         QuerySnapshot negocios1 = await negocios.where(
@@ -64,7 +61,6 @@ void getProductos1() async {
           for (var nego in negocios1.docs) {
             setState(() {
               listaneg.add(nego.data());
-              print(nego.data());
             });
           }
         }
@@ -262,7 +258,6 @@ void getProductos1() async {
                                     trailing: Icon(Icons.arrow_forward_ios),
 
                                   )
-
                               ),
                             ],
                           ),
