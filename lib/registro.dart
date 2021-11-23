@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class registro extends StatefulWidget {
   const registro({Key? key}) : super(key: key);
@@ -15,6 +16,14 @@ class _registroState extends State<registro> {
   final direccion = TextEditingController();
   final telefono = TextEditingController();
   final celular = TextEditingController();
+
+  void limpiar(){
+    cedula.text = "";
+    nombre.text = "";
+    direccion.text = "";
+    telefono.text = "";
+    celular.text = "";
+  }
 
   CollectionReference clientes = FirebaseFirestore.instance.collection("Clientes");
 
@@ -45,16 +54,31 @@ class _registroState extends State<registro> {
                     campoTexto(texto: "Ingrese su telefono", icono: Icons.contact_phone_sharp, vertical: 20, control: telefono,),
                     campoTexto(texto: "Ingrese su celular", icono: Icons.aod_outlined, vertical: 20, control: celular,),
                     ElevatedButton(
-                        onPressed: (){
+                        onPressed: () async {
                           if(cedula.text.isEmpty || nombre.text.isEmpty || direccion.text.isEmpty || telefono.text.isEmpty || celular.text.isEmpty){
                             print("Llene los espacios");
+                            Fluttertoast.showToast(msg: "Campos vacios", toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER, backgroundColor: Colors.deepPurple, textColor: Colors.white, fontSize: 30);
                           }else{
+                            QuerySnapshot existe = await clientes.where(FieldPath.documentId, isEqualTo: cedula.text).get();
+                            if(existe.docs.length>0){
+                              Fluttertoast.showToast(msg: "La cedula ya existe", toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER, backgroundColor: Colors.deepPurple);
+                              limpiar();
+                            }else{
                             clientes.doc(cedula.text).set({
                               "nombre": nombre.text,
                               "direccion": direccion.text,
                               "telefono": telefono.text,
                               "celular": celular.text
                             });
+                            QuerySnapshot existe = await clientes.where(FieldPath.documentId, isEqualTo: cedula.text).get();
+                            limpiar();
+                            if(existe.docs.length>0) {
+                              Fluttertoast.showToast(msg: "Cliente registrado", toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER);
+                            }else{
+                              Fluttertoast.showToast(msg: "Cliente no registrado", toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER);
+
+                            }
+                            }
                           }
                         },
                         child: Text("Registrarse"),
@@ -112,6 +136,5 @@ class campoTexto extends StatelessWidget {
     );
   }
 }
-
 
 
