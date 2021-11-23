@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:neighborshop/registro.dart';
 
 import 'menulateral/menuLateral.dart';
+import 'package:neighborshop/negocios.dart';
 //import 'registro.dart';
 
 
@@ -195,26 +196,26 @@ class body extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  categoria(imagen: "assets/imagenes/001.png", texto: "TIENDAS",),
-                  categoria(imagen: "assets/imagenes/003.png", texto: "LAVANDERIA",),
+                  categoria(imagen: "assets/imagenes/001.png", texto: "TIENDAS", controla: "tienda"),
+                  categoria(imagen: "assets/imagenes/003.png", texto: "LAVANDERIA",controla: "lavanderia"),
                 ],
               ),
               Row(
                 children: [
-                  categoria(imagen: "assets/imagenes/004.png", texto: "PIZZERIA",),
-                  categoria(imagen: "assets/imagenes/005.png", texto: "CIGARRERIA",),
+                  categoria(imagen: "assets/imagenes/004.png", texto: "PIZZERIA",controla: "pizzeria"),
+                  categoria(imagen: "assets/imagenes/005.png", texto: "CIGARRERIA",controla: "cigarreria"),
                 ],
               ),
               Row(
                 children: [
-                  categoria(imagen: "assets/imagenes/006.png", texto: "FERRETERIA",),
-                  categoria(imagen: "assets/imagenes/007.png", texto: "COMIDAS",),
+                  categoria(imagen: "assets/imagenes/006.png", texto: "FERRETERIA",controla: "ferreteria"),
+                  categoria(imagen: "assets/imagenes/007.png", texto: "COMIDAS",controla: "comidas"),
                 ],
               ),
               Row(
                 children: [
-                  categoria(imagen: "assets/imagenes/008.png", texto: "PELUQUERIA",),
-                  categoria(imagen: "assets/imagenes/009.png", texto: "PAPELERIA",),
+                  categoria(imagen: "assets/imagenes/008.png", texto: "PELUQUERIA",controla: "peluqueria"),
+                  categoria(imagen: "assets/imagenes/009.png", texto: "PAPELERIA",controla: "papeledia"),
                 ],
               ),
 
@@ -240,10 +241,12 @@ class categoria extends StatelessWidget {
     Key? key,
     required this.imagen,
     required this.texto,
+    required this.controla,
 
   }) : super(key: key);
 
   final String imagen, texto;
+  final String controla;
 
   @override
   Widget build(BuildContext context) {
@@ -255,7 +258,7 @@ class categoria extends StatelessWidget {
       padding: EdgeInsets.all(1),
       child: GestureDetector(
         onTap: (){
-          //Navigator.push(context, MaterialPageRoute(builder: (context)=> consultanegocios()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> negocios(controla)));
         },
         child: Column(
           children: <Widget>[
