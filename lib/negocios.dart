@@ -37,7 +37,7 @@ class _negociosState extends State<negocios> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Pantalla Negocios"),
+        title: Text("Negocios de " + widget.datos),
       ),
 
       body:ListView.builder(

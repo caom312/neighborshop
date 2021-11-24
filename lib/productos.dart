@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:neighborshop/descripcionPro.dart';
 
 class productos extends StatefulWidget {
   final String c;
@@ -46,9 +47,11 @@ class _productosState extends State<productos> {
           itemCount: datosProducto.length,
           itemBuilder: (BuildContext context, i) {
             return ListTileWidget(
-              foto: datosProducto[i]["nombre"],
+              foto: datosProducto[i]["foto"],
               nombre: datosProducto[i]["nombre"],
-              precio: datosProducto[i]["nombre"],
+              precio: datosProducto[i]["precio"],
+              control: datosProducto[i]["descripcion"],
+
             );
           }
       ),
@@ -60,12 +63,14 @@ class ListTileWidget extends StatelessWidget {
   final String foto;
   final String nombre;
   final String precio;
+  final String control;
 
   ListTileWidget(
       {Key? key,
         required this.foto,
         required this.nombre,
         required this.precio,
+        required this.control,
       })
       : super(key: key);
 
@@ -80,9 +85,12 @@ class ListTileWidget extends StatelessWidget {
         nombre,
         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       ),
-      subtitle: Text(precio),
+      subtitle: Text("Precio: \$"+ precio,),
       isThreeLine: true,
       trailing: Icon(Icons.keyboard_arrow_right),
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>descripcionPro(control)));
+        }
     );
   }
 }

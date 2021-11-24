@@ -16,6 +16,8 @@ class _registroState extends State<registro> {
   final direccion = TextEditingController();
   final telefono = TextEditingController();
   final celular = TextEditingController();
+  final correo = TextEditingController();
+  final clave = TextEditingController();
 
   void limpiar(){
     cedula.text = "";
@@ -23,6 +25,8 @@ class _registroState extends State<registro> {
     direccion.text = "";
     telefono.text = "";
     celular.text = "";
+    correo.text = "";
+    clave.text = "";
   }
 
   CollectionReference clientes = FirebaseFirestore.instance.collection("Clientes");
@@ -40,7 +44,7 @@ class _registroState extends State<registro> {
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.symmetric(horizontal: 20, vertical: 100),
-              height: size.height * 0.7,
+              height: size.height * 0.95,
               width: size.width * 0.9,
               decoration: BoxDecoration(
                 color: Colors.deepPurpleAccent.withOpacity(0.3),
@@ -53,15 +57,18 @@ class _registroState extends State<registro> {
                     campoTexto(texto: "Ingrese su dirección", icono: Icons.add, vertical: 20, control: direccion,),
                     campoTexto(texto: "Ingrese su telefono", icono: Icons.contact_phone_sharp, vertical: 20, control: telefono,),
                     campoTexto(texto: "Ingrese su celular", icono: Icons.aod_outlined, vertical: 20, control: celular,),
+                    campoTexto(texto: "Ingrese su correo", icono: Icons.email_outlined, vertical: 20, control: correo),
+                    campoClave(texto: "Ingrese su clave", icono: Icons.lock, vertical: 20, control: clave),
+
                     ElevatedButton(
                         onPressed: () async {
-                          if(cedula.text.isEmpty || nombre.text.isEmpty || direccion.text.isEmpty || telefono.text.isEmpty || celular.text.isEmpty){
+                          if(cedula.text.isEmpty || nombre.text.isEmpty || direccion.text.isEmpty || telefono.text.isEmpty || celular.text.isEmpty || correo.text.isEmpty || clave.text.isEmpty){
                             print("Llene los espacios");
-                            Fluttertoast.showToast(msg: "Campos vacios", toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER, backgroundColor: Colors.deepPurple, textColor: Colors.white, fontSize: 30);
+                            toast("Campos vacios");
                           }else{
                             QuerySnapshot existe = await clientes.where(FieldPath.documentId, isEqualTo: cedula.text).get();
                             if(existe.docs.length>0){
-                              Fluttertoast.showToast(msg: "La cedula ya existe", toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER, backgroundColor: Colors.deepPurple);
+                              toast("La cedula ya existe");
                               limpiar();
                             }else{
                             clientes.doc(cedula.text).set({
@@ -73,9 +80,9 @@ class _registroState extends State<registro> {
                             QuerySnapshot existe = await clientes.where(FieldPath.documentId, isEqualTo: cedula.text).get();
                             limpiar();
                             if(existe.docs.length>0) {
-                              Fluttertoast.showToast(msg: "Cliente registrado", toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER);
+                              toast("Cliente registrado");
                             }else{
-                              Fluttertoast.showToast(msg: "Cliente no registrado", toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER);
+                              toast("Cliente no registrado");
 
                             }
                             }
@@ -90,6 +97,9 @@ class _registroState extends State<registro> {
         ),
       ),
     );
+  }
+  void jojo(){
+
   }
 }
 
@@ -136,5 +146,64 @@ class campoTexto extends StatelessWidget {
     );
   }
 }
+
+class campoClave extends StatelessWidget {
+  const campoClave({
+    Key? key,
+    required this.texto,
+    required this.icono,
+    required this.vertical,
+    required this.control,
+
+  }) : super(key: key);
+
+  final String texto;
+  final IconData icono;
+  final double vertical;
+  final TextEditingController control;
+
+  @override
+  Widget build(BuildContext context) {
+    //bool esconder = true;
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      alignment: Alignment.center,
+      margin: EdgeInsets.symmetric(horizontal: 40, vertical: vertical),
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      width: size.width * 0.8,
+      height: size.height * 0.07,
+      decoration: BoxDecoration(
+        color: Colors.deepPurpleAccent.withOpacity(0.4),
+        borderRadius: BorderRadius.circular(29),
+      ),
+      child: TextField(
+        obscureText: true,
+        controller: control,
+        decoration: InputDecoration(
+          hintText: texto,
+          suffixIcon: InkWell(
+              //onTap: mostrarClave,
+              child: Icon(Icons.visibility)),
+          hintStyle: TextStyle(
+              color: Colors.deepPurpleAccent
+          ),
+          icon: Icon(icono, color: Colors.deepPurpleAccent,),
+          enabledBorder: InputBorder.none,
+          focusedBorder: InputBorder.none,
+        ),
+      ),
+    );
+  }
+}
+
+
+void toast(dato)=> Fluttertoast.showToast(
+    msg: dato,
+    toastLength: Toast.LENGTH_LONG,
+    gravity: ToastGravity.CENTER,
+    backgroundColor: Colors.deepPurple,
+    textColor: Colors.white,
+    fontSize: 20,
+);
 
 

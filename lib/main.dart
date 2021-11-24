@@ -209,13 +209,13 @@ class body extends StatelessWidget {
               Row(
                 children: [
                   categoria(imagen: "assets/imagenes/006.png", texto: "FERRETERIA",controla: "ferreteria"),
-                  categoria(imagen: "assets/imagenes/007.png", texto: "COMIDAS",controla: "comidas"),
+                  categoria(imagen: "assets/imagenes/007.png", texto: "COMIDAS",controla: "comida"),
                 ],
               ),
               Row(
                 children: [
                   categoria(imagen: "assets/imagenes/008.png", texto: "PELUQUERIA",controla: "peluqueria"),
-                  categoria(imagen: "assets/imagenes/009.png", texto: "PAPELERIA",controla: "papeledia"),
+                  categoria(imagen: "assets/imagenes/009.png", texto: "PAPELERIA",controla: "papeleria"),
                 ],
               ),
 
