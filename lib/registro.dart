@@ -18,6 +18,7 @@ class _registroState extends State<registro> {
   final celular = TextEditingController();
   final correo = TextEditingController();
   final clave = TextEditingController();
+  bool esconder = true;
 
   void limpiar(){
     cedula.text = "";
@@ -58,7 +59,38 @@ class _registroState extends State<registro> {
                     campoTexto(texto: "Ingrese su telefono", icono: Icons.contact_phone_sharp, vertical: 20, control: telefono,),
                     campoTexto(texto: "Ingrese su celular", icono: Icons.aod_outlined, vertical: 20, control: celular,),
                     campoTexto(texto: "Ingrese su correo", icono: Icons.email_outlined, vertical: 20, control: correo),
-                    campoClave(texto: "Ingrese su clave", icono: Icons.lock, vertical: 20, control: clave),
+                    Container(
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      width: size.width * 0.8,
+                      height: size.height * 0.07,
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurpleAccent.withOpacity(0.4),
+                        borderRadius: BorderRadius.circular(29),
+                      ),
+                      child: TextField(
+                        obscureText: esconder,
+                        controller: clave,
+                        decoration: InputDecoration(
+                          hintText: "Ingrese su clave",
+                          suffixIcon: GestureDetector(
+                            onTap: (){
+                              setState(() {
+                              esconder = !esconder;
+                              });
+                            },
+                            child: Icon(esconder ?Icons.visibility : Icons.visibility_off),
+                          ),
+                          hintStyle: TextStyle(
+                              color: Colors.deepPurpleAccent
+                          ),
+                          icon: Icon(Icons.lock, color: Colors.deepPurpleAccent,),
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                        ),
+                      ),
+                    ),
 
                     ElevatedButton(
                         onPressed: () async {
@@ -100,9 +132,6 @@ class _registroState extends State<registro> {
       ),
     );
   }
-  void jojo(){
-
-  }
 }
 
 class campoTexto extends StatelessWidget {
@@ -143,55 +172,6 @@ class campoTexto extends StatelessWidget {
         icon: Icon(icono, color: Colors.deepPurpleAccent,),
         enabledBorder: InputBorder.none,
         focusedBorder: InputBorder.none,
-        ),
-      ),
-    );
-  }
-}
-
-class campoClave extends StatelessWidget {
-  const campoClave({
-    Key? key,
-    required this.texto,
-    required this.icono,
-    required this.vertical,
-    required this.control,
-
-  }) : super(key: key);
-
-  final String texto;
-  final IconData icono;
-  final double vertical;
-  final TextEditingController control;
-
-  @override
-  Widget build(BuildContext context) {
-    //bool esconder = true;
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      alignment: Alignment.center,
-      margin: EdgeInsets.symmetric(horizontal: 40, vertical: vertical),
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      width: size.width * 0.8,
-      height: size.height * 0.07,
-      decoration: BoxDecoration(
-        color: Colors.deepPurpleAccent.withOpacity(0.4),
-        borderRadius: BorderRadius.circular(29),
-      ),
-      child: TextField(
-        obscureText: true,
-        controller: control,
-        decoration: InputDecoration(
-          hintText: texto,
-          suffixIcon: InkWell(
-              //onTap: mostrarClave,
-              child: Icon(Icons.visibility)),
-          hintStyle: TextStyle(
-              color: Colors.deepPurpleAccent
-          ),
-          icon: Icon(icono, color: Colors.deepPurpleAccent,),
-          enabledBorder: InputBorder.none,
-          focusedBorder: InputBorder.none,
         ),
       ),
     );
