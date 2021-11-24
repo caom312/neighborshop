@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:neighborshop/pantallas/listarnegocios.dart';
 
 class descripcionPro extends StatefulWidget {
   final String con;
@@ -9,16 +11,48 @@ class descripcionPro extends StatefulWidget {
 }
 
 class _descripcionProState extends State<descripcionPro> {
+  List listaProducto = [];
+
+  void initState() {
+    super.initState();
+    getDescripcion();
+  }
+
+  void getDescripcion() async {
+    CollectionReference pro = FirebaseFirestore.instance.collection(
+        "Productos");
+    QuerySnapshot produ = await pro.where("descripcion", isEqualTo: widget.con)
+        .get();
+    if (produ.docs.length > 0) {
+      print("Trae Datos");
+
+      for (var doc in produ.docs) {
+        print(doc.data());
+        setState(() {
+          listaProducto.add(doc.data());
+        });
+      }
+    } else {
+      print("Ha fallado.......");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
-      ),body: Column(
-        children: [
-          Text(widget.con, style: TextStyle(fontSize: 20,),),
-        ],
-    ),
+        //title: Text(listaProducto[0]["nombre"]),
+      ),
+      body: ListView.builder(
+          itemCount: listaProducto.length,
+          itemBuilder: (BuildContext context, i) {
+            return Column(
+              children: [
+                miCardImage(url: listaProducto[i]["foto"], texto: widget.con),
+              ],
+            );
+          }
+      ),
     );
   }
 }

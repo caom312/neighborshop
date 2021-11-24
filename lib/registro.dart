@@ -75,7 +75,9 @@ class _registroState extends State<registro> {
                               "nombre": nombre.text,
                               "direccion": direccion.text,
                               "telefono": telefono.text,
-                              "celular": celular.text
+                              "celular": celular.text,
+                              "correo": correo.text,
+                              "clave": clave.text,
                             });
                             QuerySnapshot existe = await clientes.where(FieldPath.documentId, isEqualTo: cedula.text).get();
                             limpiar();
