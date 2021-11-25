@@ -48,7 +48,6 @@ class _listarnegociosState extends State<listarnegocios> {
 
       appBar: AppBar(
 
-
         title:  ListTile(
           onTap: (){
             final List<negociomodelodata> negociodatos = List.generate(
@@ -61,8 +60,9 @@ class _listarnegociosState extends State<listarnegocios> {
               delegate: SearchNegociosDelegate(negociodatos),
             );
           },
+
           title: const Text(
-              'Clic para Buscar Negocio \u{1F50D}', textAlign: TextAlign.left, style: TextStyle(color: Colors.white,fontSize: 14)),
+              'Clic para Buscar Negocio \u{1F50D}',  textAlign: TextAlign.left, style: TextStyle(color: Colors.white,fontSize: 14)),
 
       ),
       ),

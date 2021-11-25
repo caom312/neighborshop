@@ -82,7 +82,7 @@ void getProductos1() async {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text("Neighbor shop"),
+        title: Text("NeighborShop"),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,

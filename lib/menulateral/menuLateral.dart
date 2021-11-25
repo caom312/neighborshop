@@ -58,6 +58,13 @@ Drawer drawermenulateral(BuildContext context) {
             },
           ),
           ListTile(
+            title: Text('Registrar Pedidos',style: TextStyle(fontSize: 15),),
+            leading: Icon(Icons.shopping_cart),
+            onTap: (){
+              //Navigator.push(context, MaterialPageRoute(builder: (context)=> busquedapro()));
+            },
+          ),
+          ListTile(
             title: Text('Salir',style: TextStyle(fontSize: 15),),
             leading: Icon(Icons.logout_outlined),
             onTap: (){
