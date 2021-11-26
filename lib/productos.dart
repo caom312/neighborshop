@@ -49,7 +49,7 @@ class _productosState extends State<productos> {
             return ListTileWidget(
               foto: datosProducto[i]["foto"],
               nombre: datosProducto[i]["nombre"],
-              precio: datosProducto[i]["precio"],
+              precio: datosProducto[i]["precio"].toString(),
               control: datosProducto[i]["descripcion"],
 
             );
@@ -62,15 +62,15 @@ class _productosState extends State<productos> {
 class ListTileWidget extends StatelessWidget {
   final String foto;
   final String nombre;
-  final String precio;
   final String control;
+  final String precio;
 
   ListTileWidget(
       {Key? key,
         required this.foto,
         required this.nombre,
-        required this.precio,
         required this.control,
+        required this.precio,
       })
       : super(key: key);
 
@@ -85,7 +85,7 @@ class ListTileWidget extends StatelessWidget {
         nombre,
         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       ),
-      subtitle: Text("Precio: \$"+ precio,),
+      subtitle: Text("Precio: \$"+ precio),
       isThreeLine: true,
       trailing: Icon(Icons.keyboard_arrow_right),
         onTap: () {
