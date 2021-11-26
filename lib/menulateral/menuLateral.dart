@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:neighborshop/pantallas/inicioSesion.dart';
 import 'package:neighborshop/pantallas/listarnegocios.dart';
 import '../busquedapro.dart';
 import '../registro.dart';
@@ -28,11 +31,11 @@ Drawer drawermenulateral(BuildContext context) {
           ),
           */
 
-          ListTile(
+         ListTile(
             title: Text('Iniciar Sesion',style: TextStyle(fontSize: 15),),
             leading: Icon(Icons.login_outlined),
             onTap: (){
-
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> inicioSesion()));
             },
           ),
           ListTile(
@@ -61,13 +64,14 @@ Drawer drawermenulateral(BuildContext context) {
             title: Text('Registrar Pedidos',style: TextStyle(fontSize: 15),),
             leading: Icon(Icons.shopping_cart),
             onTap: (){
-              //Navigator.push(context, MaterialPageRoute(builder: (context)=> busquedapro()));
+
             },
           ),
           ListTile(
             title: Text('Salir',style: TextStyle(fontSize: 15),),
             leading: Icon(Icons.logout_outlined),
             onTap: (){
+              //exit(0);
 
             },
           ),
