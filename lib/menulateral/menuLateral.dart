@@ -1,8 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:neighborshop/pantallas/inicioSesion.dart';
 import 'package:neighborshop/pantallas/listarnegocios.dart';
+import 'package:neighborshop/pantallas/moduloPedido.dart';
 import '../busquedapro.dart';
 import '../registro.dart';
 
@@ -21,23 +19,7 @@ Drawer drawermenulateral(BuildContext context) {
               accountName: Text('NeighborShop',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 25),),
               accountEmail: Text('')
           ),
-          /*
-          Container(
-            color: Colors.deepPurple,
-            width: 100,
-            height: 100,
-            child: Text('NeighborShor',style: TextStyle(color:Colors.white)),
-            //child: Image.network("https://firebasestorage.googleapis.com/v0/b/grupo15caom.appspot.com/o/logo%2FlogoNeighborshop.png?alt=media&token=8a18decd-321f-4fcd-bd1e-187824cf0883"),
-          ),
-          */
 
-         ListTile(
-            title: Text('Iniciar Sesion',style: TextStyle(fontSize: 15),),
-            leading: Icon(Icons.login_outlined),
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> inicioSesion()));
-            },
-          ),
           ListTile(
             title: Text('Registrarse',style: TextStyle(fontSize: 15),),
             leading: Icon(Icons.account_box_outlined),
@@ -64,6 +46,7 @@ Drawer drawermenulateral(BuildContext context) {
             title: Text('Registrar Pedidos',style: TextStyle(fontSize: 15),),
             leading: Icon(Icons.shopping_cart),
             onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> moduloPedido()));
 
             },
           ),
