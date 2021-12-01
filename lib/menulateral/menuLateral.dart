@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neighborshop/configuracion.dart';
 import 'package:neighborshop/pantallas/listarnegocios.dart';
 import 'package:neighborshop/pantallas/moduloPedido.dart';
 import '../busquedapro.dart';
@@ -47,6 +48,14 @@ Drawer drawermenulateral(BuildContext context) {
             leading: Icon(Icons.shopping_cart),
             onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=> moduloPedido()));
+
+            },
+          ),
+          ListTile(
+            title: Text('Configuracion',style: TextStyle(fontSize: 15),),
+            leading: Icon(Icons.settings),
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> configuarcion()));
 
             },
           ),
