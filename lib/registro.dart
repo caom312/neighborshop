@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:neighborshop/menulateral/menuLateral.dart';
 
 class registro extends StatefulWidget {
   const registro({Key? key}) : super(key: key);
@@ -39,10 +39,13 @@ class _registroState extends State<registro> {
       appBar: AppBar(
         title: Text("Registrate"),
       ),
+      drawer: drawermenulateral(context),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+
+           Container(
+
               alignment: Alignment.center,
               margin: EdgeInsets.symmetric(horizontal: 20, vertical: 100),
               height: size.height * 0.95,

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:neighborshop/menulateral/menuLateral.dart';
 import 'package:neighborshop/productos.dart';
 
 class negocios extends StatefulWidget {
@@ -39,6 +40,7 @@ class _negociosState extends State<negocios> {
       appBar: AppBar(
         title: Text("Negocios de " + widget.datos),
       ),
+      drawer: drawermenulateral(context),
 
       body:ListView.builder(
           itemCount: negocioLista.length,

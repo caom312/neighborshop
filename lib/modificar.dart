@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:neighborshop/main.dart';
 import 'package:neighborshop/registro.dart';
+
+import 'menulateral/menuLateral.dart';
 
 class modificar extends StatefulWidget {
   final String dato;
@@ -56,8 +57,10 @@ class _modificarState extends State<modificar> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Configure sus datos"),
-      ),body: SingleChildScrollView(
+        title: Text("Actualizar datos"),
+      ),
+      drawer: drawermenulateral(context),
+      body: SingleChildScrollView(
       child:Container(
         alignment: Alignment.center,
         margin: EdgeInsets.symmetric(horizontal: 20, vertical: 100),

@@ -3,6 +3,7 @@ import 'package:neighborshop/configuracion.dart';
 import 'package:neighborshop/pantallas/listarnegocios.dart';
 import 'package:neighborshop/pantallas/moduloPedido.dart';
 import '../busquedapro.dart';
+import '../main.dart';
 import '../registro.dart';
 
 
@@ -20,7 +21,15 @@ Drawer drawermenulateral(BuildContext context) {
               accountName: Text('NeighborShop',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 25),),
               accountEmail: Text('')
           ),
+          ListTile(
+          title: Text('Home',style: TextStyle(fontSize: 15),),
+          leading: Icon(Icons.home),
 
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>MyApp()));
+
+          },
+          ),
           ListTile(
             title: Text('Registrarse',style: TextStyle(fontSize: 15),),
             leading: Icon(Icons.account_box_outlined),

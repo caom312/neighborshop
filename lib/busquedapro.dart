@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:neighborshop/pantallas/descripcionnegocio.dart';
 import 'package:neighborshop/pantallas/negociomodelodata.dart';
 
+import 'menulateral/menuLateral.dart';
+
 
 class busquedapro extends StatefulWidget {
   const busquedapro({Key? key}) : super(key: key);
@@ -84,6 +86,7 @@ void getProductos1() async {
         elevation: 0,
         title: Text("NeighborShop"),
       ),
+      drawer: drawermenulateral(context),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(

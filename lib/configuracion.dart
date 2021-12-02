@@ -1,9 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:neighborshop/menulateral/menuLateral.dart';
 import 'package:neighborshop/modificar.dart';
-import 'package:neighborshop/pantallas/listanegociosPedido.dart';
 import 'package:neighborshop/registro.dart';
 
 class configuarcion extends StatefulWidget {
@@ -33,7 +31,7 @@ class _configuarcionState extends State<configuarcion> {
         body: ListView(children: [
           Container(
             child: Text(
-              "Modifique sus datos",
+              "Verifique sus datos",
               style: TextStyle(color: Colors.deepPurple,fontWeight: FontWeight.bold, fontSize: 25),
             ),
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neighborshop/menulateral/menuLateral.dart';
 import 'package:neighborshop/pantallas/negociomodelodata.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'listarnegocios.dart';
@@ -12,7 +13,9 @@ class descripcionnegocio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(Negociomodelodata.nombre),),
+      appBar: AppBar(title: Text(Negociomodelodata.nombre),
+      ),
+      drawer: drawermenulateral(context),
 
       body:ListView(
         children: [

@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:neighborshop/descripcionPro.dart';
 
+import 'menulateral/menuLateral.dart';
+
 class productos extends StatefulWidget {
   final String c;
   const productos(this.c, {Key? key}) : super(key: key);
@@ -42,6 +44,7 @@ class _productosState extends State<productos> {
       appBar: AppBar(
         title: Text("Pantalla Productos"),
       ),
+      drawer: drawermenulateral(context),
 
       body:ListView.builder(
           itemCount: datosProducto.length,

@@ -115,7 +115,7 @@ class _carritoBarState extends State<carritoBar> {
         ),*/
         BottomNavigationBarItem(
             icon: Icon(Icons.paid, size: 30),
-            label: "Confirmar\nCompra"
+            label: "Confirmar\nPedido"
         )
       ],
       onTap: (indice){

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:neighborshop/buscadorappbar/SearchNegociosDelegate.dart';
+import 'package:neighborshop/menulateral/menuLateral.dart';
 import 'package:neighborshop/pantallas/descripcionnegocio.dart';
 import 'package:neighborshop/pantallas/negociomodelodata.dart';
 
@@ -66,6 +67,7 @@ class _listarnegociosState extends State<listarnegocios> {
 
       ),
       ),
+      drawer: drawermenulateral(context),
       body: ListView.builder(
           itemCount: datos_negocios.length,
           itemBuilder: (BuildContext context,j){

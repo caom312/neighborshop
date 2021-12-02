@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:neighborshop/pantallas/listarnegocios.dart';
 
+import 'menulateral/menuLateral.dart';
+
 class descripcionPro extends StatefulWidget {
   final String con;
   const descripcionPro( this.con, {Key? key}) : super(key: key);
@@ -43,6 +45,7 @@ class _descripcionProState extends State<descripcionPro> {
       appBar: AppBar(
         //title: Text(listaProducto[0]["nombre"]),
       ),
+      drawer: drawermenulateral(context),
       body: ListView.builder(
           itemCount: listaProducto.length,
           itemBuilder: (BuildContext context, i) {
