@@ -3,6 +3,8 @@
    <application
         android:label="neighborshop"
         android:icon="@mipmap/launcher_icon">
+       <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyAjJyTZVwqhlks9B8BYWpTfLbcB3mx6X10"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
