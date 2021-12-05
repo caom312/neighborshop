@@ -204,7 +204,8 @@ void getProductos1() async {
                                           listaneg[i]['logo'],
                                           listaneg[i]['nombre'],
                                           listaneg[i]['paginaweb'],
-                                          listaneg[i]['telefono_fijo']);
+                                          listaneg[i]['telefono_fijo'],
+                                          );
                                       Navigator.push(context, MaterialPageRoute(
                                           builder: (context) =>
                                               descripcionnegocio(
