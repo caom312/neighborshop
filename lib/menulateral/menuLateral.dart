@@ -5,6 +5,7 @@ import 'package:neighborshop/pantallas/moduloPedido.dart';
 import '../busquedapro.dart';
 import '../main.dart';
 import '../registro.dart';
+import '../mensaje.dart';
 
 
 Drawer drawermenulateral(BuildContext context) {
@@ -68,6 +69,15 @@ Drawer drawermenulateral(BuildContext context) {
 
             },
           ),
+
+          ListTile(
+            title: Text('Notificaciones',style: TextStyle(fontSize: 15),),
+            leading: Icon(Icons.email_outlined),
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> mensaje()));
+            },
+          ),
+
           ListTile(
             title: Text('Salir',style: TextStyle(fontSize: 15),),
             leading: Icon(Icons.logout_outlined),

@@ -110,7 +110,7 @@ class body extends StatelessWidget {
       child: Column(
         children:[
           Container(
-            height: size.height * 0.2,
+            //height: size.height * 0.2,
             child :Stack(
               children: [
                 Container(
@@ -119,7 +119,7 @@ class body extends StatelessWidget {
                     right: 20,
                     bottom: 20,
                   ),
-                  height: size.height * 0.2 - 27,
+                  //height: size.height * 0.2 - 27,
                   decoration: BoxDecoration(
                     color: Colors.deepPurple,
                     borderRadius: BorderRadius.only(
@@ -128,12 +128,14 @@ class body extends StatelessWidget {
                     ),
                   ),
                   child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text(
-                        "Bienvenid@!",
+                        "¡Bienvenid@!",
                         style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 25),
                       ),
-                      Spacer(),
+                      /*Spacer(),*/
                       //Image.asset("assets/iconos/001.PNG"),
                     ],
                   ),
@@ -175,9 +177,9 @@ class body extends StatelessWidget {
             ),
           ),
           Container(
-              height: 50,
+              //height: 50,
               margin: EdgeInsets.only(
-                top: 20,
+                //top: 20,
               ),
               child: Stack(
                 children: [
