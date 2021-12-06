@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:neighborshop/registro.dart';
 import 'menulateral/menuLateral.dart';
 import 'package:neighborshop/negocios.dart';
+
 //import 'registro.dart';
 
 

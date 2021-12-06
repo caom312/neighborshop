@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:neighborshop/pantallas/descripcionnegocio.dart';
+import 'package:neighborshop/pantallas/listarnegocios.dart';
 import 'package:neighborshop/pantallas/negociomodelodata.dart';
+//import 'package:neighborshop/pantallas/negociomodelodata.dart';
 
 import 'menulateral/menuLateral.dart';
 
@@ -205,11 +207,9 @@ void getProductos1() async {
                                           listaneg[i]['nombre'],
                                           listaneg[i]['paginaweb'],
                                           listaneg[i]['telefono_fijo'],
+
                                           );
-                                      Navigator.push(context, MaterialPageRoute(
-                                          builder: (context) =>
-                                              descripcionnegocio(
-                                                  Negociomodelodata: n)));
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => descripcionnegocio(Negociomodelodata: n)));
                                     },
                                     title: Text(
                                         listaneg[i]['nombre'].toString()),

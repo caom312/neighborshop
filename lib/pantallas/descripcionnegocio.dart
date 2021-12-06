@@ -10,7 +10,6 @@ import 'listarnegocios.dart';
 class descripcionnegocio extends StatefulWidget {
   final negociomodelodata Negociomodelodata;
 
-
   const descripcionnegocio({required this.Negociomodelodata});
 
   @override
@@ -46,16 +45,17 @@ class _descripcionnegocioState extends State<descripcionnegocio> {
     final Set<Marker> marca = Set();
     for(var i in geo){
       late GeoPoint pos = geo[0]["geolocalizacion"];
-        marca.add(Marker(
-        markerId: MarkerId("a"),
-        position: LatLng(pos.latitude,pos.longitude),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
+      marca.add(
+        Marker(
+          markerId: MarkerId("a"),
+          position: LatLng(pos.latitude,pos.longitude),
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
           infoWindow: InfoWindow(
-            title: geo[0]["nombre"],
-            snippet: geo[0]["telefono_fijo"]
+              title: geo[0]["nombre"],
+              snippet: geo[0]["celular"]
           ),
-    ),
-    );
+        ),
+      );
     }
     return Scaffold(
       appBar: AppBar(title: Text(widget.Negociomodelodata.nombre),
@@ -63,32 +63,33 @@ class _descripcionnegocioState extends State<descripcionnegocio> {
       drawer: drawermenulateral(context),
 
       body:ListView.builder(
-        itemCount: geo.length,
-        itemBuilder: (BuildContext context, i){
-          return Column(
-            children: [
-              Container(
-                height: size.height * 0.5,
-                width: size.width * 0.9,
-                child:GoogleMap(
-                  initialCameraPosition: CameraPosition(target: LatLng(geo[i]["geolocalizacion"].latitude,geo[i]["geolocalizacion"].longitude),
-                    zoom: 15,
+          itemCount: geo.length,
+          itemBuilder: (BuildContext context, i){
+            return Column(
+              children: [
+                miCardImage(url: widget.Negociomodelodata.foto, texto: widget.Negociomodelodata.nombre+"\n"+widget.Negociomodelodata.categoria
+                    +"\nCel: "+widget.Negociomodelodata.celular+"\nDir:"+widget.Negociomodelodata.direccion+"\nTel: "+widget.Negociomodelodata.telefono_fijo),
+                ElevatedButton(
+
+                    onPressed: (){
+
+                      launch(widget.Negociomodelodata.paginaweb.toString());
+                    },
+                    child: Text("Mi pagina web")),
+                Container(
+                  height: size.height * 0.5,
+                  width: size.width * 0.9,
+                  child:GoogleMap(
+                    initialCameraPosition: CameraPosition(target: LatLng(geo[i]["geolocalizacion"].latitude,geo[i]["geolocalizacion"].longitude),
+                      zoom: 15,
+
+                    ),
+                    markers: marca,
+                  ),
                 ),
-                  markers: marca,
-              ),
-              ),
-              miCardImage(url: widget.Negociomodelodata.foto, texto: widget.Negociomodelodata.nombre+"\n"+widget.Negociomodelodata.categoria
-                  +"\nCel: "+widget.Negociomodelodata.celular+"\nDir:"+widget.Negociomodelodata.direccion+"\nTel: "+widget.Negociomodelodata.telefono_fijo),
-              ElevatedButton(
-
-                  onPressed: (){
-
-                    launch(widget.Negociomodelodata.paginaweb.toString());
-                  },
-                  child: Text("Mi pagina web"))
-            ],
-          );
-        }
+              ],
+            );
+          }
       ),
     );
   }

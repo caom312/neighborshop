@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neighborshop/menulateral/menuLateral.dart';
 import 'package:neighborshop/recibiendomensaje.dart';
 
 class mensaje extends StatefulWidget {
@@ -21,7 +22,8 @@ class _mensajeState extends State<mensaje> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Notificaciones'),
-      )
+      ),
+      drawer: drawermenulateral(context),
     );
   }
 }

@@ -19,6 +19,7 @@ class carritoCompras extends StatefulWidget {
 }
 
 class _carritoComprasState extends State<carritoCompras> {
+  int _cantidad = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +33,7 @@ class _carritoComprasState extends State<carritoCompras> {
             itemBuilder: (BuildContext context, i){
               return Card(
                 child:ListTile(
+
                 title: Text(widget.pedido[i].nombre+"\n\u0024"+widget.pedido[i].precio.toString()+" x "+
                     widget.pedido[i].cant.toString()+" = \u0024"+widget.pedido[i].total.toString()),
                 trailing: Icon(Icons.delete, size: 30, color: Colors.deepPurple,),
@@ -40,7 +42,9 @@ class _carritoComprasState extends State<carritoCompras> {
                   widget.pedido.removeAt(i);
                   setState(() { });
                 },
-              )
+                )
+
+
               );
 
             }

@@ -74,11 +74,15 @@ class _listarnegociosState extends State<listarnegocios> {
             return ListTile(
                 onTap:(){
                   print(datos_negocios[j]);
+
+
                   negociomodelodata n = negociomodelodata(datos_negocios[j]['categoria'],datos_negocios[j]['celular'],
                       datos_negocios[j]['direccion'],datos_negocios[j]['foto'],
                       datos_negocios[j]['logo'],datos_negocios[j]['nombre'],datos_negocios[j]['paginaweb'],
                       datos_negocios[j]['telefono_fijo']);
+                      print(n);
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>descripcionnegocio(Negociomodelodata: n)));
+
 
 
                 },
@@ -135,7 +139,6 @@ class miCardImage extends StatelessWidget {
     );
   }
 }
-
 
 
 

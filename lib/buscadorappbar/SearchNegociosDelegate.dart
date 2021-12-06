@@ -1,6 +1,8 @@
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:neighborshop/pantallas/descripcionnegocio.dart';
+import 'package:neighborshop/pantallas/listarnegocios.dart';
 import 'package:neighborshop/pantallas/negociomodelodata.dart';
 
 class SearchNegociosDelegate extends SearchDelegate<negociomodelodata>{
@@ -43,8 +45,8 @@ class SearchNegociosDelegate extends SearchDelegate<negociomodelodata>{
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    _filter = negocios.where((negociomodelodata){
-      return negociomodelodata.nombre.toLowerCase().contains(query.trim().toLowerCase());
+    _filter = negocios.where((negociomodelodata2){
+      return negociomodelodata2.nombre.toLowerCase().contains(query.trim().toLowerCase());
 
     }).toList();
     return ListView.builder(
