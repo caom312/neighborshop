@@ -1,15 +1,14 @@
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:neighborshop/pantallas/descripcionnegocio.dart';
 import 'package:neighborshop/pantallas/listarnegocios.dart';
 import 'package:neighborshop/pantallas/negociomodelodata.dart';
 
 class SearchNegociosDelegate extends SearchDelegate<negociomodelodata>{
- final List<negociomodelodata> negocios;
+ final List<negociomodelodata2> negocios;
  SearchNegociosDelegate(this.negocios);
 
- List<negociomodelodata> _filter=[];
+ List<negociomodelodata2> _filter=[];
 
   //crear boton limpiar del buscador
   @override
@@ -55,10 +54,10 @@ class SearchNegociosDelegate extends SearchDelegate<negociomodelodata>{
           return ListTile(
             onTap:(){
               print(_filter[j]);
-              negociomodelodata n = negociomodelodata(_filter[j].categoria,_filter[j].celular,
+              negociomodelodata2 n = negociomodelodata2(_filter[j].categoria,_filter[j].celular,
                   _filter[j].direccion,_filter[j].foto,_filter[j].logo,
                   _filter[j].nombre,_filter[j].paginaweb,
-                  _filter[j].telefono_fijo);
+                  _filter[j].telefono_fijo,_filter[j].geolocalizacion);
               Navigator.push(context, MaterialPageRoute(builder: (context)=>descripcionnegocio(Negociomodelodata: n)));
 
 

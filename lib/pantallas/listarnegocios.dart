@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:neighborshop/buscadorappbar/SearchNegociosDelegate.dart';
 import 'package:neighborshop/menulateral/menuLateral.dart';
 import 'package:neighborshop/pantallas/descripcionnegocio.dart';
-import 'package:neighborshop/pantallas/negociomodelodata.dart';
+
 
 
 class listarnegocios extends StatefulWidget {
@@ -51,11 +51,11 @@ class _listarnegociosState extends State<listarnegocios> {
 
         title:  ListTile(
           onTap: (){
-            final List<negociomodelodata> negociodatos = List.generate(
-                datos_negocios.length, (index) => negociomodelodata(datos_negocios[index]['categoria'],
+            final List<negociomodelodata2> negociodatos = List.generate(
+                datos_negocios.length, (index) => negociomodelodata2(datos_negocios[index]['categoria'],
                 datos_negocios[index]['celular'],datos_negocios[index]['direccion'],
                 datos_negocios[index]['foto'],datos_negocios[index]['logo'],datos_negocios[index]['nombre'],
-                datos_negocios[index]['paginaweb'],datos_negocios[index]['telefono_fijo']));
+                datos_negocios[index]['paginaweb'],datos_negocios[index]['telefono_fijo'],datos_negocios[index]['geolocalizacion']));
             showSearch(
               context: context,
               delegate: SearchNegociosDelegate(negociodatos),
@@ -76,10 +76,10 @@ class _listarnegociosState extends State<listarnegocios> {
                   print(datos_negocios[j]);
 
 
-                  negociomodelodata n = negociomodelodata(datos_negocios[j]['categoria'],datos_negocios[j]['celular'],
+                  negociomodelodata2 n = negociomodelodata2(datos_negocios[j]['categoria'],datos_negocios[j]['celular'],
                       datos_negocios[j]['direccion'],datos_negocios[j]['foto'],
                       datos_negocios[j]['logo'],datos_negocios[j]['nombre'],datos_negocios[j]['paginaweb'],
-                      datos_negocios[j]['telefono_fijo']);
+                      datos_negocios[j]['telefono_fijo'],datos_negocios[j]['geolocalizacion']);
                       print(n);
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>descripcionnegocio(Negociomodelodata: n)));
 
@@ -140,6 +140,32 @@ class miCardImage extends StatelessWidget {
   }
 }
 
+class negociomodelodata2 {
+
+  String categoria="";
+  String celular="";
+  String direccion="";
+  String foto="";
+  String logo="";
+  String nombre="";
+  String paginaweb="";
+  String telefono_fijo="";
+  late GeoPoint geolocalizacion;
+
+
+  negociomodelodata2(
+      this.categoria,
+      this.celular,
+      this.direccion,
+      this.foto,
+      this.logo,
+      this.nombre,
+      this.paginaweb,
+      this.telefono_fijo,
+      this.geolocalizacion);
+
+
+}
 
 
 

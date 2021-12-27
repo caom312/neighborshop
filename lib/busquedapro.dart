@@ -2,8 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:neighborshop/pantallas/descripcionnegocio.dart';
 import 'package:neighborshop/pantallas/listarnegocios.dart';
-import 'package:neighborshop/pantallas/negociomodelodata.dart';
-//import 'package:neighborshop/pantallas/negociomodelodata.dart';
+
 
 import 'menulateral/menuLateral.dart';
 
@@ -198,7 +197,7 @@ void getProductos1() async {
                                   ListTile(
                                     onTap: () {
                                       print(listaneg[i]);
-                                      negociomodelodata n = negociomodelodata(
+                                      negociomodelodata2 n = negociomodelodata2(
                                           listaneg[i]['categoria'],
                                           listaneg[i]['celular'],
                                           listaneg[i]['direccion'],
@@ -207,6 +206,7 @@ void getProductos1() async {
                                           listaneg[i]['nombre'],
                                           listaneg[i]['paginaweb'],
                                           listaneg[i]['telefono_fijo'],
+                                          listaneg[i]['geolocalizacion'],
 
                                           );
                                       Navigator.push(context, MaterialPageRoute(builder: (context) => descripcionnegocio(Negociomodelodata: n)));
